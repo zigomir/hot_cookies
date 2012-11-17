@@ -1,5 +1,11 @@
 class CookiesController < ApplicationController
+
   def index
-    @test = 'hehe'
+    @cookies = Cookie.all
   end
+
+  def show
+     @cookie = Cookie.find(params[:id])
+  end
+
 end

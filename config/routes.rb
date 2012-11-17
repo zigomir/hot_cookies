@@ -1,5 +1,10 @@
 HotCookies::Application.routes.draw do
-  get 'cookies' => 'cookies#index'
+
+  root :to => 'home#index'
+
+  get 'cookies'     => 'cookies#index'
+  get 'cookies/:id' => 'cookies#show', :as => :cookie # to tell helper with what to start; cookie_path or cookie_url
+                                                      # also do not forget for irregular singular so check inflections.rb
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -50,7 +55,6 @@ HotCookies::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
 
   # See how all your routes lay out with "rake routes"
 

@@ -1,0 +1,8 @@
+<ul>
+  <% @cookies.each do |cookie| %>
+      <li>
+        <%= cookie.name %>
+        <%= link_to 'Details', cookie %>
+      </li>
+  <% end %>
+</ul>
