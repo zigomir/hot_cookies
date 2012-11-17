@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 
   def index
-    @cookies = Cookie.all(limit: 5)
+    @cookies = Cookie.all(:joins => [:ingredients], :conditions => ['ingredients.stock > 0'])
   end
 
 end

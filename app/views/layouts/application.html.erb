@@ -8,10 +8,13 @@
 </head>
 <body>
 
+<div class=cart>
+  <%= link_to "Cart (#{cart.cookies.count})", cart_path %>
+</div>
+
 <nav>
   <ul>
     <li><%= link_to 'Home', root_path %></li>
-    <li><%= link_to 'Cookies', cookies_path %></li>
   </ul>
 </nav>
 

@@ -1,5 +1,18 @@
 <div class="cookie-details">
-  <p>Ime: <%= @cookie.name %></p>
+  <p><%= @cookie.name %></p>
   <p>Cena: <%= number_to_currency @cookie.price %></p>
-  <p>Zaloga: <%= @cookie.stock %></p>
+
+  <p>Sestavine: </p>
+  <div class="cookie-ingredients">
+    <ul>
+      <% @cookie.ingredients.each do |i| %>
+        <li><%= i.name %></li>
+        <li>Masa: <%= i.mass %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <%= form_for @cookie, :url => { :action => 'add_to_cart' } do |f| %>
+    <%= f.submit 'Add to cart' %>
+  <% end %>
 </div>

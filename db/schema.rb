@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121013142706) do
+ActiveRecord::Schema.define(:version => 20121117195938) do
 
   create_table "cookie_ingredients", :force => true do |t|
     t.integer  "cookie_id"
@@ -23,9 +23,19 @@ ActiveRecord::Schema.define(:version => 20121013142706) do
   add_index "cookie_ingredients", ["cookie_id"], :name => "index_cookie_ingredients_on_cookie_id"
   add_index "cookie_ingredients", ["ingredient_id"], :name => "index_cookie_ingredients_on_ingredient_id"
 
+  create_table "cookie_orders", :force => true do |t|
+    t.integer  "cookie_id"
+    t.integer  "order_id"
+    t.integer  "cookie_mass"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "cookie_orders", ["cookie_id"], :name => "index_cookie_orders_on_cookie_id"
+  add_index "cookie_orders", ["order_id"], :name => "index_cookie_orders_on_order_id"
+
   create_table "cookies", :force => true do |t|
     t.string   "name"
-    t.integer  "stock"
     t.float    "price"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -38,6 +48,13 @@ ActiveRecord::Schema.define(:version => 20121013142706) do
     t.float    "price"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "orders", :force => true do |t|
+    t.float    "price"
+    t.string   "customer_email"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
 end

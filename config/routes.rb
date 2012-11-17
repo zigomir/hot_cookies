@@ -1,10 +1,20 @@
 HotCookies::Application.routes.draw do
 
+  get "cart/index"
+
+  get "cart/remove_item"
+
+  get "cart/add_order"
+
   root :to => 'home#index'
 
   get 'cookies'     => 'cookies#index'
   get 'cookies/:id' => 'cookies#show', :as => :cookie # to tell helper with what to start; cookie_path or cookie_url
                                                       # also do not forget for irregular singular so check inflections.rb
+  put 'cookies/:id/add_to_cart' => 'cookies#add_to_cart'
+
+  get 'cart'            => 'cart#index'
+  post 'cart/add_order' => 'cart#add_order'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

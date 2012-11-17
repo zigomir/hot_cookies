@@ -1,0 +1,12 @@
+<h1>My Cart</h1>
+
+<%= form_for @order, :url => { :action => 'add_order' } do |f| %>
+    <ul>
+      <% cart.cookies.each do |cookie| %>
+        <li><%= cookie.name %></li>
+      <% end %>
+    </ul>
+
+    <%= f.text_field 'customer_email' %>
+    <%= f.submit 'Add order' %>
+<% end %>

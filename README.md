@@ -18,7 +18,7 @@ Shranjevanje podatkov v modele (podatkovno bazo) - M
 ---
 
     rails generate
-    rails g model cookie name stock:integer price:float
+    rails g model cookie name price:float
     rails g model ingredient name stock:integer mass:integer price:float
     rails g model cookie_ingredient cookie:references ingredient:references
     # look at models and migrations
