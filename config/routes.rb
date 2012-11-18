@@ -1,11 +1,5 @@
 HotCookies::Application.routes.draw do
 
-  get "cart/index"
-
-  get "cart/remove_item"
-
-  get "cart/add_order"
-
   root :to => 'home#index'
 
   get 'cookies'     => 'cookies#index'
@@ -15,6 +9,8 @@ HotCookies::Application.routes.draw do
 
   get 'cart'            => 'cart#index'
   post 'cart/add_order' => 'cart#add_order'
+
+  get 'admin' => 'admin::order#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

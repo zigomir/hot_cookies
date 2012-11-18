@@ -1,0 +1,15 @@
+<h1>Customer orders</h1>
+
+<ul>
+  <% @orders.each do |order| %>
+    <li><%= order.customer_email %></li>
+    <li><%= order.created_at %></li>
+    <li>
+      <ul>
+        <% order.cookies.each do |cookie| %>
+          <li><%= cookie.name %></li>
+        <% end %>
+      </ul>
+    </li>
+  <% end %>
+</ul>
